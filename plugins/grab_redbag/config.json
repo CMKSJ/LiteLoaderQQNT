@@ -1,0 +1,21 @@
+{
+    "isActive": true,
+    "notificationonly": false,
+    "useRandomDelay": false,
+    "delayLowerBound": "",
+    "delayUpperBound": "",
+    "useRandomDelayForSend": false,
+    "delayLowerBoundForSend": "",
+    "delayUpperBoundForSend": "",
+    "avoidKeyWords": [],
+    "avoidGroups": [],
+    "listenKeyWords": [],
+    "listenGroups": [],
+    "Send2Who": [],
+    "useSelfNotice": true,
+    "thanksMsgs": [],
+    "isActiveAllGroups": true,
+    "blockType": "0",
+    "pluginPath": "D:\\Tencent\\QQNT\\resources\\app\\LiteLoaderQQNT\\plugins\\grab_redbag",
+    "configPath": "D:\\Tencent\\QQNT\\resources\\app\\LiteLoaderQQNT\\plugins\\grab_redbag\\config.json"
+}

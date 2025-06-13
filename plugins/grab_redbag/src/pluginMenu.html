@@ -1,0 +1,362 @@
+<meta charset="UTF-8">
+<div class="config-menu config_view">
+    <section class="path">
+        <h1>主要配置</h1>
+        <div class="wrap">
+            <div class="list">
+                <div class="vertical-list-item">
+                    <div>
+                        <h2>启用自动抢红包</h2>
+                        <span class="secondary-text">动态更新，无需重启QQ</span>
+                    </div>
+                    <div id="gr-active-button" class="q-switch">
+                        <span class="q-switch__handle"></span>
+                    </div>
+                </div>
+                <hr class="horizontal-dividing-line"/>
+                <div class="vertical-list-item">
+                    <div>
+                        <h2>监听所有群消息</h2>
+                        <span class="secondary-text">默认方式下可能收不到某些群消息，开启后激活所有群，若群聊过多可能卡顿</span>
+                    </div>
+                    <div id="gr-active-all-chat-button" class="q-switch">
+                        <span class="q-switch__handle"></span>
+                    </div>
+                </div>
+                <hr class="horizontal-dividing-line"/>
+                <div class="vertical-list-item">
+                    <div>
+                        <h2>仅通知，不抢红包</h2>
+                        <span class="secondary-text">⚠需开启上面两个开关，且开启此选项将无法抢红包⚠</span>
+                    </div>
+                    <div id="gr-notification-only-button" class="q-switch">
+                        <span class="q-switch__handle"></span>
+                    </div>
+                </div>
+                <hr class="horizontal-dividing-line"/>
+                <div class="vertical-list-item">
+                    <div>
+                        <h2>启用回馈消息</h2>
+                        <span class="secondary-text">抢到红包后给自己发送消息</span>
+                    </div>
+                    <div id="gr-feedback-msg-button" class="q-switch">
+                        <span class="q-switch__handle"></span>
+                    </div>
+                </div>
+                <hr class="horizontal-dividing-line"/>
+                <div class="vertical-list-item">
+                    <div>
+                        <h2>回馈消息设置</h2>
+                        <span class="secondary-text">留空则默认发给自己，输入1发给“我的手机”、输入群号则发给该群</span>
+                    </div>
+                    <input data-type="primary" id="gr-Send2Who-input" style="width: 35%"
+                           class="q-input__inner q-input__inner--clearable custom-input independent-key-input"
+                           type="text" placeholder="留空则默认发给自己">
+                </div>
+                <hr class="horizontal-dividing-line"/>
+                <div class="vertical-list-item">
+                    <div>
+                        <h2>启用随机延迟</h2>
+                        <span class="secondary-text">等待区间内的随机时间后再领取红包和发送回馈消息，单位ms，请输入整数</span>
+                    </div>
+                    <div id="gr-random-delay-button" class="q-switch">
+                        <span class="q-switch__handle"></span>
+                    </div>
+                </div>
+                <hr class="horizontal-dividing-line"/>
+                <div class="vertical-list-item">
+                    <div class="independent-key-div">
+                        <h2 style="margin-right: 25px">抢红包延迟下限</h2>
+                        <input data-type="primary" id="gr-lower-bound-input"
+                               class="q-input__inner q-input__inner--clearable custom-input independent-key-input"
+                               type="text" placeholder="包含下限值">
+                    </div>
+                    <div class="independent-key-div">
+                        <h2 style="margin-right: 25px">抢红包延迟上限</h2>
+                        <input data-type="primary" id="gr-upper-bound-input"
+                               class="q-input__inner q-input__inner--clearable custom-input independent-key-input"
+                               type="text" placeholder="包含上限值">
+                    </div>
+                </div>
+                <div class="vertical-list-item">
+                    <div class="independent-key-div">
+                        <h2 style="margin-right: 25px">发回复延迟下限</h2>
+                        <input data-type="primary" id="gr-lower-bound-send-input"
+                               class="q-input__inner q-input__inner--clearable custom-input independent-key-input"
+                               type="text" placeholder="包含下限值">
+                    </div>
+                    <div class="independent-key-div">
+                        <h2 style="margin-right: 25px">发回复延迟上限</h2>
+                        <input data-type="primary" id="gr-upper-bound-send-input"
+                               class="q-input__inner q-input__inner--clearable custom-input independent-key-input"
+                               type="text" placeholder="包含上限值">
+                    </div>
+                </div>
+                <hr class="horizontal-dividing-line"/>
+                <div class="vertical-list-item">
+                    <div>
+                        <h2>红包感谢消息</h2>
+                        <span class="secondary-text">抢到红包后给对方发送感谢消息,多条随机发送请用英文逗号隔开</span>
+                    </div>
+                    <input data-type="primary" id="gr-thanks-msg-input" style="width: 35%"
+                           class="q-input__inner q-input__inner--clearable custom-input independent-key-input"
+                           type="text" placeholder="留空不发送，支持随机消息">
+                </div>
+                <hr class="horizontal-dividing-line"/>
+                <div class="vertical-list-item">
+                    <div class="left-part">
+                        <h2>白/黑名单模式</h2>
+                        <div style="display: flex; flex-direction: column">
+                            <span class="secondary-text">白名单只接受指定群红包，黑名单则屏蔽对应群的红包</span>
+                        </div>
+                    </div>
+                    <div style="width: 35%">
+                        <label>
+                            <select id="gr-block-type-selector">
+                                <option value="0">不启用</option>
+                                <option value="1">白名单模式</option>
+                                <option value="2">黑名单模式</option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+                <hr class="horizontal-dividing-line"/>
+                <div class="vertical-list-item">
+                    <div>
+                        <h2>白名单关键字</h2>
+                        <span class="secondary-text">用英文逗号隔开，红包名含关键字才会抢红包</span>
+                    </div>
+                    <input data-type="primary" id="gr-key-words-input" style="width: 35%"
+                           class="q-input__inner q-input__inner--clearable custom-input independent-key-input"
+                           type="text" placeholder="留空则默认抢所有红包">
+                </div>
+                <div class="vertical-list-item">
+                    <div>
+                        <h2>白名单群号</h2>
+                        <span class="secondary-text">用英文逗号隔开，红包来自对应群聊才会抢红包，写群号</span>
+                    </div>
+                    <input data-type="primary" id="gr-key-groups-input" style="width: 35%"
+                           class="q-input__inner q-input__inner--clearable custom-input independent-key-input"
+                           type="text" placeholder="留空则默认抢所有红包">
+                </div>
+                <hr class="horizontal-dividing-line"/>
+                <div class="vertical-list-item">
+                    <div>
+                        <h2>黑名单关键字</h2>
+                        <span class="secondary-text">用英文逗号隔开，红包名含关键字则不抢红包</span>
+                    </div>
+                    <input data-type="primary" id="gr-avoid-words-input" style="width: 35%"
+                           class="q-input__inner q-input__inner--clearable custom-input independent-key-input"
+                           type="text" placeholder="留空则默认抢所有红包">
+                </div>
+                <div class="vertical-list-item">
+                    <div>
+                        <h2>黑名单群号</h2>
+                        <span class="secondary-text">用英文逗号隔开，红包来自对应群聊则不抢红包，写群号</span>
+                    </div>
+                    <input data-type="primary" id="gr-avoid-groups-input" style="width: 35%"
+                           class="q-input__inner q-input__inner--clearable custom-input independent-key-input"
+                           type="text" placeholder="留空则默认抢所有红包">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="path">
+        <h1>插件说明</h1>
+        <div class="wrap">
+            <div class="list">
+                <div class="vertical-list-item" style="display: flex; flex-direction: column">
+                    写黑白名单时群号和关键字不要有多余空格，会影响判断。
+                </div>
+                <hr class="horizontal-dividing-line"/>
+                <div class="vertical-list-item" style="display: flex; flex-direction: column">
+                    本插件仅供学习参考，任何问题概不负责。
+                </div>
+                <hr class="horizontal-dividing-line"/>
+                <div class="vertical-list-item">
+                    <h1>项目地址https://github.com/WJZ-P/LiteLoaderQQNT-Grab-RedBag</h1>
+                </div>
+                <hr class="horizontal-dividing-line"/>
+                <div class="vertical-list-item" style="justify-content: center">
+                    <h1>喜欢请点小星星 (✧ω✧)</h1>
+                </div>
+                <hr class="horizontal-dividing-line"/>
+
+            </div>
+        </div>
+    </section>
+
+
+    <style>
+        #gr-block-type-selector {
+            color: gray;
+            width: 180px;
+            font-size: 14px;
+            border-radius: 2px;
+            border: 1px solid #ccc;
+            background-color: var(--background-color-05); /*跟随主题色*/
+            cursor: pointer;
+            outline: none;
+            padding: 3px;
+
+        }
+
+        #gr-block-type-selector option {
+            background-color: var(--background-color-05); /* 修改选项的背景色 */
+            opacity: 0.8;
+            color: #333;
+            padding: 10px;
+            font-size: 15px;
+        }
+
+        #gr-block-type-selector option:hover {
+            background-color: #66ccff; /* 当鼠标悬停时的背景色 */
+            color: #fff; /* 改变文字颜色 */
+        }
+
+        #gr-block-type-selector:focus {
+            border-color: #007BFF;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        .custom-input {
+            color: gray;
+            /*background-color: #abbbbb; !* 暗色背景 *!*/
+        }
+
+        .independent-key-input {
+            width: 50%;
+        }
+
+        .independent-key-div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5px;
+            width: 50%;
+        }
+
+        .q-input__inner {
+            border-radius: 2px;
+            border: 1px solid #ccc;
+            padding: 4px;
+            font-size: 14px;
+        }
+
+        .left-part {
+            display: flex;
+            flex-direction: column;
+            margin-right: 10px;
+        }
+
+        /* 通用 */
+        .config_view {
+            margin: 20px;
+            overflow-y: auto;
+        }
+
+        .config_view h1 {
+            color: var(--text_primary);
+            font-weight: var(--font-bold);
+            font-size: min(var(--font_size_3), 18px);
+            line-height: min(var(--line_height_3), 24px);
+            padding: 0px 16px;
+            margin-bottom: 8px;
+        }
+
+        .config_view .wrap {
+            /* Linux样式兼容：--fg_white */
+            background-color: var(--fill_light_primary, var(--fg_white));
+            border-radius: 8px;
+            font-size: min(var(--font_size_3), 18px);
+            line-height: min(var(--line_height_3), 24px);
+            margin-bottom: 20px;
+            overflow: hidden;
+            padding: 0px 16px;
+        }
+
+        .config_view .vertical-list-item {
+            margin: 10px 0px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .config_view .horizontal-dividing-line {
+            border: unset;
+            margin: unset;
+            height: 1px;
+            background-color: rgba(127, 127, 127, 0.15);
+        }
+
+        .config_view .secondary-text {
+            color: var(--text_secondary);
+            font-size: min(var(--font_size_2), 16px);
+            line-height: min(var(--line_height_2), 22px);
+            margin-top: 4px;
+        }
+
+        .config_view .wrap .title svg {
+            width: 1em;
+            height: 1em;
+            transform: rotate(-180deg);
+            transition-duration: 0.2s;
+            transition-timing-function: ease;
+            transition-delay: 0s;
+            transition-property: transform;
+        }
+
+        .config_view .modal-dialog header {
+            font-size: 12px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        .config_view .modal-dialog main {
+            padding: 0px 16px;
+        }
+
+        .config_view .modal-dialog main p {
+            margin: 8px 0px;
+        }
+
+        .config_view .modal-dialog footer {
+            height: 30px;
+            display: flex;
+            justify-content: right;
+            align-items: center;
+        }
+
+
+        /* 版本号 */
+        .config_view .versions .wrap {
+            display: flex;
+            justify-content: space-between;
+            padding: 16px 0px;
+        }
+
+        .config_view .versions .wrap > div {
+            flex: 1;
+            margin: 0px 10px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+
+        @media (prefers-color-scheme: light) {
+            .text_color {
+                color: black;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .text_color {
+                color: white;
+            }
+        }
+
+    </style>
+</div>

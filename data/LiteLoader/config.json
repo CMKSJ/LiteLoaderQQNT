@@ -1,0 +1,9 @@
+{
+    "enable_plugins": true,
+    "disabled_plugins": [
+        "LLOneBot",
+        "brevity-btn"
+    ],
+    "deleting_plugins": {},
+    "installing_plugins": {}
+}
